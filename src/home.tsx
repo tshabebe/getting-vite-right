@@ -4,7 +4,7 @@ import { paths } from './paths'
 
 export default function Home() {
   return (
-    <main className="min-h-screen container flex flex-col">
+    <main className="min-h-screen mx-auto px-3.5 md:px-6 lg:px-36 container flex flex-col">
       <div className="flex flex-col gap-5">
         <Header />
         <GameCard />

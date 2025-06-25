@@ -20,6 +20,11 @@ export const paths = {
         getHref: () => '/app/games/XO',
       },
       {
+        path: '/src/assets/bingo.png',
+        name: 'Bingo',
+        getHref: () => '/app/games/bingo',
+      },
+      {
         path: '/src/assets/chess.png',
         name: 'Chess',
         getHref: () => '/app/games/chess',
