@@ -1,9 +1,21 @@
 import { Button } from 'react-aria-components'
 import { Icon } from './components/Icon'
+import { paths } from './paths'
 
 export default function Home() {
   return (
     <main className="min-h-screen container flex flex-col">
+      <div className="flex flex-col gap-5">
+        <Header />
+        <GameCard />
+      </div>
+    </main>
+  )
+}
+
+function Header() {
+  return (
+    <div className="flex flex-col">
       <img
         src="/logo.png"
         alt="Logo"
@@ -27,10 +39,9 @@ export default function Home() {
           <span className="text-3xl md:hidden font-bold">$24,630</span>
         </div>
       </div>
-    </main>
+    </div>
   )
 }
-
 function BetComponent() {
   return (
     <Button
@@ -42,7 +53,7 @@ function BetComponent() {
         <span className="text-2xl md:text-3xl">$20</span>
         <span>bet</span>
       </span>
-      <div className="flex p-2 bg-green-background hover:bg-green-backround-hover  rounded-md">
+      <div className="flex p-2 bg-green-background hover:bg-green-background-hover  rounded-md">
         <Icon
           name="ArrowUpFromLine"
           className=" stroke-green-foreground hover:stroke-green-foreground-hover size-3.5 md:size-4 lg:size-5"
@@ -64,5 +75,22 @@ function ProfileComponent() {
         className="stroke-foreground size-3.5 md:size-4 lg:size-5"
       />
     </Button>
+  )
+}
+
+function GameCard() {
+  return (
+    <div className="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 basis-10">
+      {paths.app.games.map((game) => (
+        <Button className={'h-48'}>
+          <img
+            src={game.path}
+            alt={game.name}
+            key={game.name}
+            className="w-full h-full object-cover  rounded-lg"
+          />
+        </Button>
+      ))}
+    </div>
   )
 }
