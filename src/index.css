@@ -25,12 +25,6 @@
   --green-11: #94fa9b;
 }
 
-@utility container {
-  @media (width >= 1400px) {
-    max-width: 1400px;
-  }
-}
-
 body {
   @apply text-sm font-semibold;
   font-family: 'Josefin Sans', system-ui, Avenir, Helvetica, Arial, sans-serif;
