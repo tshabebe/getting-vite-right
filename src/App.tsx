@@ -5,10 +5,11 @@ import {
   NavLink,
   RouterProvider,
 } from "react-router";
+import { paths } from "./paths";
 
 const router = createBrowserRouter([
   {
-    path: "/support",
+    path: paths.app.support.getHref(),
     element: <div><div>Hello from support</div> <OnClickNavigation /></div>,
   },
   {
