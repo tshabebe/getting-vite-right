@@ -10,13 +10,21 @@ export default function Home() {
         className="size-24 -mx-2 mt-4 lg:mt-2 md:size-32 absolute opacity-80"
       />
       <div className="pt-20 md:pt-24 flex flex-col gap-5 md:gap-6">
-        <div>
-          <h1 className="text-3xl md:text-4xl font-bold">Next Games</h1>
-          <h2>Earn while having fun! 😊</h2>
+        <div className="flex justify-between">
+          <div>
+            <h1 className="text-3xl md:text-4xl font-bold">Next Games</h1>
+            <h2>Earn while having fun! 😊</h2>
+          </div>
+          <div className="flex gap-2 items-center ">
+            <ProfileComponent />
+            <span className="text-4xl pt-1 hidden md:block font-bold">
+              $24,630
+            </span>
+          </div>
         </div>
         <div className="flex gap-4 items-end">
           <BetComponent />
-          <span className="text-3xl md:text-4xl font-bold">$24,630</span>
+          <span className="text-3xl md:hidden font-bold">$24,630</span>
         </div>
       </div>
     </main>
@@ -40,6 +48,21 @@ function BetComponent() {
           className=" stroke-green-foreground hover:stroke-green-foreground-hover size-3.5 md:size-4 lg:size-5"
         />
       </div>
+    </Button>
+  )
+}
+
+function ProfileComponent() {
+  return (
+    <Button
+      className={
+        'bg-elevation-1 hover:bg-elevation-1-hover p-2 hover:text-foreground-hover items-center rounded-full'
+      }
+    >
+      <Icon
+        name="User"
+        className="stroke-foreground size-3.5 md:size-4 lg:size-5"
+      />
     </Button>
   )
 }
