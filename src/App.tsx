@@ -28,7 +28,7 @@ const router = createBrowserRouter([
 function OnClickNavigation() {
     const navigate = useNavigate();
 
-  return <button onClick={() => navigate('/')}>button</button>
+  return <button onClick={() => window.location.href = "https://google.com" }>button</button>
 }
 
 function App() {
