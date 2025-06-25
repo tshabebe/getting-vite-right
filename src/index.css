@@ -1,16 +1,51 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+
+@theme {
+  --color-background: var(--gray-1);
+  --color-foreground: var(--gray-10);
+  --color-green-background: var(--green-1);
+  --color-green-foreground: var(--green-10);
+  --color-elevation-1: var(--gray-2);
+  --color-elevation-1-hover: var(--gray-3);
+  --color-foreground-hover: var(--gray-11);
+  --color-green-foreground-hover: var(--green-11);
+  --color-green-backround-hover: var(--green-2);
+}
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --gray-1: #171819;
+  --gray-2: #222425;
+  --gray-3: #2c2f30;
+  --gray-10: #b0b7bf;
+  --gray-11: #e8e8e8;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  --green-1: #29512c;
+  --green-2: #336637;
+  --green-10: #4bf756;
+  --green-11: #94fa9b;
+}
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@utility container {
+  margin-inline: auto;
+  @media (width >= --theme(--breakpoint-sm)) {
+    max-width: --theme(--breakpoint-sm);
+    padding-inline: 1rem;
+  }
+  @media (width >= --theme(--breakpoint-lg)) {
+    padding-inline: 2rem;
+    max-width: --theme(--breakpoint-lg);
+  }
+}
+
+body {
+  @apply text-sm font-semibold;
+  font-family: 'Josefin Sans', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+}
+
+@font-face {
+  font-family: 'Josefin Sans';
+  src: url('/JosefinSans-VariableFont_wght.ttf') format('truetype');
+  font-weight: 400 500 600 700;
 }
