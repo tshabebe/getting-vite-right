@@ -49,12 +49,16 @@ function Header() {
 }
 function SearchGames() {
   return (
-    <div className="relative self-stretch hidden md:block ">
+    <div className="relative self-stretch hidden md:block overflow-hidden rounded-2xl">
       <Input
         className={'px-3 bg-gray-input h-full border-border rounded-2xl'}
         placeholder="search games"
       />
-      <Button className={'inset-y-0 right-0  absolute rounded-md p-2'}>
+      <Button
+        className={
+          'inset-y-0 right-0 hover:bg-elevation-1  absolute border-l border-border p-2'
+        }
+      >
         <Icon name="Search" className="size-3.5 md:size-4 lg:size-5 mr-2 " />
       </Button>
     </div>
