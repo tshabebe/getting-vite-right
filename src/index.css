@@ -11,12 +11,17 @@
   --color-foreground-contrast: var(--gray-11);
   --color-green-foreground-hover: var(--green-11);
   --color-green-background-hover: var(--green-2);
+  --color-gray-input: #1b1c1d;
+  --color-foreground-secondary: var(--gray-9);
+  --color-border: var(--gray-4);
 }
 
 :root {
   --gray-1: #171819;
   --gray-2: #222425;
   --gray-3: #2c2f30;
+  --gray-4: #2e3132;
+  --gray-9: #7d8996;
   --gray-10: #b0b7bf;
   --gray-11: #e8e8e8;
 

@@ -1,4 +1,4 @@
-import { Button } from 'react-aria-components'
+import { Button, Input } from 'react-aria-components'
 import { Icon } from './components/Icon'
 import { paths } from './paths'
 
@@ -29,16 +29,34 @@ function Header() {
           </div>
           <div className="flex gap-2 items-center ">
             <ProfileComponent />
-            <span className="text-4xl pt-1 hidden md:block font-bold">
-              $24,630
+            <span className="hidden md:flex items-end gap-1">
+              <span className="text-3xl font-bold">24,630</span>
+              <span className="text-foreground-secondary pb-1">Birr</span>
             </span>
           </div>
         </div>
         <div className="flex gap-4 items-end">
           <BetComponent />
-          <span className="text-3xl md:hidden font-bold">$24,630</span>
+          <SearchGames />
+          <span className="md:hidden flex items-end gap-1">
+            <span className="text-3xl font-bold">24,630</span>
+            <span className="text-foreground-secondary pb-1">Birr</span>
+          </span>
         </div>
       </div>
+    </div>
+  )
+}
+function SearchGames() {
+  return (
+    <div className="relative self-stretch hidden md:block ">
+      <Input
+        className={'px-3 bg-gray-input h-full border-border rounded-2xl'}
+        placeholder="search games"
+      />
+      <Button className={'inset-y-0 right-0  absolute rounded-md p-2'}>
+        <Icon name="Search" className="size-3.5 md:size-4 lg:size-5 mr-2 " />
+      </Button>
     </div>
   )
 }
@@ -50,8 +68,14 @@ function BetComponent() {
       }
     >
       <span className="flex items-end gap-1">
-        <span className="text-2xl md:text-3xl">$20</span>
-        <span>bet</span>
+        <span className="flex items-end gap-1">
+          <span className="text-2xl md:text-3xl">20</span>
+          <span className="pb-1 flex gap-1">
+            <span className="text-foreground-secondary">Birr</span>
+            <span>/</span>
+            <span>bet</span>
+          </span>
+        </span>
       </span>
       <div className="flex p-2 bg-green-background hover:bg-green-background-hover  rounded-md">
         <Icon
