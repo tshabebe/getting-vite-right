@@ -7,6 +7,7 @@ export default function Home() {
     <main className="min-h-screen mx-auto px-3.5 md:px-6 lg:px-36 container flex flex-col">
       <div className="flex flex-col gap-5">
         <Header />
+        <SearchGames screen="sm" />
         <GameCard />
       </div>
     </main>
@@ -37,7 +38,7 @@ function Header() {
         </div>
         <div className="flex gap-4 items-end">
           <BetComponent />
-          <SearchGames />
+          <SearchGames screen="md" />
           <span className="md:hidden flex items-end gap-1">
             <span className="text-3xl font-bold">24,630</span>
             <span className="text-foreground-secondary pb-1">Birr</span>
@@ -47,14 +48,22 @@ function Header() {
     </div>
   )
 }
-function SearchGames() {
+function SearchGames({ screen }: { screen: 'md' | 'sm' }) {
   return (
-    <div className="relative self-stretch hidden md:block overflow-hidden rounded-2xl">
+    <div
+      className={`relative  overflow-hidden rounded-2xl ${
+        screen === 'md'
+          ? 'hidden md:block self-stretch'
+          : screen === 'sm'
+          ? 'block md:hidden self-start h-12'
+          : ''
+      }`}
+    >
       <Input
         className={
           'px-3 bg-gray-input h-full border-border outline-none rounded-2xl'
         }
-        placeholder="search games"
+        placeholder="find your games"
       />
       <Button
         className={
