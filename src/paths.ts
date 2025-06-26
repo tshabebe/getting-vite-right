@@ -10,42 +10,42 @@ export const paths = {
     },
     games: [
       {
-        path: '/src/assets/ludo.png',
+        path: '/ludo.png',
         name: 'Ludo',
         getHref: () => '/app/games/ludo',
       },
       {
-        path: '/src/assets/xo.png',
+        path: '/xo.png',
         name: 'XO',
         getHref: () => '/app/games/XO',
       },
       {
-        path: '/src/assets/bingo.png',
+        path: '/bingo.png',
         name: 'Bingo',
         getHref: () => '/app/games/bingo',
       },
       {
-        path: '/src/assets/chess.png',
+        path: '/chess.png',
         name: 'Chess',
         getHref: () => '/app/games/chess',
       },
       {
-        path: '/src/assets/dama.png',
+        path: '/dama.png',
         name: 'Dama',
         getHref: () => '/app/games/dama',
       },
       {
-        path: '/src/assets/ginRummy.png',
+        path: '/ginRummy.png',
         name: 'Gin Rummy',
         getHref: () => '/app/games/ginRummy',
       },
       {
-        path: '/src/assets/spinWin.png',
+        path: '/spinWin.png',
         name: 'Spin Win',
         getHref: () => '/app/games/spinWin',
       },
       {
-        path: '/src/assets/uno.png',
+        path: '/uno.png',
         name: 'Uno',
         getHref: () => '/app/games/uno',
       },
