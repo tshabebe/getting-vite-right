@@ -5,7 +5,7 @@ import { paths } from './paths'
 export default function Home() {
   return (
     <main className="min-h-screen mx-auto px-3.5 md:px-6 lg:px-36 container flex flex-col">
-      <div className="flex flex-col gap-6 lg:4">
+      <div className="flex flex-col gap-6 ">
         <Header />
         <div className="flex flex-col gap-4">
           <SearchGames screen="sm" />
