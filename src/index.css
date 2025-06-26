@@ -8,6 +8,7 @@
   --color-elevation-1: var(--gray-2);
   --color-elevation-1-hover: var(--gray-3);
   --color-foreground-hover: var(--gray-11);
+  --color-foreground-contrast: var(--gray-11);
   --color-green-foreground-hover: var(--green-11);
   --color-green-background-hover: var(--green-2);
 }

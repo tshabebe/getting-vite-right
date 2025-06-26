@@ -82,13 +82,16 @@ function GameCard() {
   return (
     <div className="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 basis-10">
       {paths.app.games.map((game) => (
-        <Button className={'h-48'}>
+        <Button className={'h-48 relative'}>
           <img
             src={game.path}
             alt={game.name}
             key={game.name}
             className="w-full h-full object-cover  rounded-lg"
           />
+          <div className="absolute px-3.5 md:px-4 pb-2  text-foreground-contrast h-14 bottom-0 flex items-end bg-gradient-to-t from-elevation-1 via-50% via-elevation-1/50 to-elevation-1/0 inset-x-0">
+            <span className="text-base">{game.name}</span>
+          </div>
         </Button>
       ))}
     </div>
