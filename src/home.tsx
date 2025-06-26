@@ -5,10 +5,12 @@ import { paths } from './paths'
 export default function Home() {
   return (
     <main className="min-h-screen mx-auto px-3.5 md:px-6 lg:px-36 container flex flex-col">
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-6 lg:4">
         <Header />
-        <SearchGames screen="sm" />
-        <GameCard />
+        <div className="flex flex-col gap-4">
+          <SearchGames screen="sm" />
+          <GameCard />
+        </div>
       </div>
     </main>
   )
@@ -17,29 +19,30 @@ export default function Home() {
 function Header() {
   return (
     <div className="flex flex-col">
-      <img
-        src="/logo.png"
-        alt="Logo"
-        className="size-24 -mx-2 mt-4 lg:mt-2 md:size-32 absolute opacity-80"
-      />
-      <div className="pt-20 md:pt-24 flex flex-col gap-5 md:gap-6">
-        <div className="flex justify-between">
-          <div>
-            <h1 className="text-3xl md:text-4xl font-bold">Next Games</h1>
-            <h2>Earn while having fun! 😊</h2>
-          </div>
-          <div className="flex gap-2 items-center ">
+      <div className="pt-5 md:pt-8 flex flex-col gap-2 md:gap-6">
+        <div className="flex gap-2 md:pl-6 items-center">
+          <span className="block md:hidden">
             <ProfileComponent />
-            <span className="hidden md:flex items-end gap-1">
-              <span className="text-3xl font-bold">24,630</span>
+          </span>
+          <img
+            src="/logo.png"
+            alt="Logo"
+            className="w-fit h-9 lg:mt-2 md:w-fit md:h-10 opacity-80"
+          />
+          <div className="flex gap-2 ml-auto items-center ">
+            <span className="hidden md:block">
+              <ProfileComponent />
+            </span>
+            <span className="hidden md:flex items-end gap-1 mt-2">
+              <span className="text-3xl font-bold leading-none">24,630</span>
               <span className="text-foreground-secondary pb-1">Birr</span>
             </span>
           </div>
         </div>
-        <div className="flex gap-4 items-end">
+        <div className="flex gap-4 items-end ">
           <BetComponent />
           <SearchGames screen="md" />
-          <span className="md:hidden flex items-end gap-1">
+          <span className="md:hidden grow flex items-end gap-1">
             <span className="text-3xl font-bold">24,630</span>
             <span className="text-foreground-secondary pb-1">Birr</span>
           </span>
@@ -51,27 +54,20 @@ function Header() {
 function SearchGames({ screen }: { screen: 'md' | 'sm' }) {
   return (
     <div
-      className={`relative  overflow-hidden rounded-2xl ${
+      className={`  overflow-hidden rounded-2xl ${
         screen === 'md'
           ? 'hidden md:block self-stretch'
           : screen === 'sm'
-          ? 'block md:hidden self-start h-12'
+          ? 'block md:hidden self-stretch h-12'
           : ''
       }`}
     >
       <Input
         className={
-          'px-3 bg-gray-input h-full border-border outline-none rounded-2xl'
+          'px-3 bg-gray-input w-full h-full border-border outline-none rounded-2xl'
         }
         placeholder="find your games"
       />
-      <Button
-        className={
-          'inset-y-0 right-0 hover:bg-elevation-1 absolute border-l border-border p-2'
-        }
-      >
-        <Icon name="Search" className="size-3.5 md:size-4 lg:size-5 mr-2 " />
-      </Button>
     </div>
   )
 }
@@ -79,7 +75,7 @@ function BetComponent() {
   return (
     <Button
       className={
-        'flex px-6 py-2 bg-elevation-1 gap-6 md:gap-12 lg:gap-14 hover:bg-elevation-1-hover hover:text-foreground-hover items-center rounded-2xl'
+        'flex px-6 py-2 grow md:grow-0 bg-elevation-1 justify-between md:justify-start md:gap-12 lg:gap-14 hover:bg-elevation-1-hover hover:text-foreground-hover items-center rounded-2xl'
       }
     >
       <span className="flex items-end gap-1">
@@ -119,7 +115,7 @@ function ProfileComponent() {
 
 function GameCard() {
   return (
-    <div className="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 basis-10">
+    <div className="grid md:px-6 gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 basis-10">
       {paths.app.games.map((game) => (
         <Button className={'h-48 relative'}>
           <img
