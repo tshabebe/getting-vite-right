@@ -141,7 +141,7 @@ function GameCard({ games }: { games: typeof paths.app.games }) {
     <div className="grid md:px-6 gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 basis-10">
       {games.map((game) => (
         <Button
-          className={'h-48 relative group overflow-hidden'}
+          className={'h-48 relative group overflow-hidden rounded-lg'}
           key={game.name}
         >
           <img
