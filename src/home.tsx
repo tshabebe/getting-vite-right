@@ -1,22 +1,41 @@
 import { Button, Input } from 'react-aria-components'
+import { useState } from 'react'
 import { Icon } from './components/Icon'
 import { paths } from './paths'
 
 export default function Home() {
+  const [searchQuery, setSearchQuery] = useState('')
+
+  const filteredGames = paths.app.games.filter((game) =>
+    game.name.toLowerCase().includes(searchQuery.toLowerCase()),
+  )
+
   return (
     <main className="min-h-screen mx-auto px-3.5 md:px-6 lg:px-36 container flex flex-col">
       <div className="flex flex-col gap-6 ">
-        <Header />
+        <Header searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
         <div className="flex flex-col gap-4">
-          <SearchGames screen="sm" />
-          <GameCard />
+          <SearchGames
+            screen="sm"
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+          />
+          <GameCard
+            games={filteredGames as unknown as typeof paths.app.games}
+          />
         </div>
       </div>
     </main>
   )
 }
 
-function Header() {
+function Header({
+  searchQuery,
+  setSearchQuery,
+}: {
+  searchQuery: string
+  setSearchQuery: (query: string) => void
+}) {
   return (
     <div className="flex flex-col">
       <div className="pt-5 md:pt-8 flex flex-col gap-2 md:gap-6">
@@ -41,7 +60,11 @@ function Header() {
         </div>
         <div className="flex gap-4 items-end ">
           <BetComponent />
-          <SearchGames screen="md" />
+          <SearchGames
+            screen="md"
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+          />
           <span className="md:hidden grow flex items-end gap-1">
             <span className="text-3xl font-bold">24,630</span>
             <span className="text-foreground-secondary pb-1">Birr</span>
@@ -51,7 +74,16 @@ function Header() {
     </div>
   )
 }
-function SearchGames({ screen }: { screen: 'md' | 'sm' }) {
+
+function SearchGames({
+  screen,
+  searchQuery,
+  setSearchQuery,
+}: {
+  screen: 'md' | 'sm'
+  searchQuery: string
+  setSearchQuery: (query: string) => void
+}) {
   return (
     <div
       className={`  overflow-hidden rounded-2xl ${
@@ -67,10 +99,13 @@ function SearchGames({ screen }: { screen: 'md' | 'sm' }) {
           'px-3 bg-gray-input w-full h-full border-border outline-none rounded-2xl'
         }
         placeholder="find your games"
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
       />
     </div>
   )
 }
+
 function BetComponent() {
   return (
     <Button
@@ -113,15 +148,14 @@ function ProfileComponent() {
   )
 }
 
-function GameCard() {
+function GameCard({ games }: { games: typeof paths.app.games }) {
   return (
     <div className="grid md:px-6 gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 basis-10">
-      {paths.app.games.map((game) => (
-        <Button className={'h-48 relative'}>
+      {games.map((game) => (
+        <Button className={'h-48 relative'} key={game.name}>
           <img
             src={game.path}
             alt={game.name}
-            key={game.name}
             className="w-full h-full object-cover  rounded-lg"
           />
           <div className="absolute px-3.5 md:px-4 pb-2  text-foreground-contrast h-14 bottom-0 flex items-end bg-gradient-to-t from-elevation-1 via-50% via-elevation-1/50 to-elevation-1/0 inset-x-0">
