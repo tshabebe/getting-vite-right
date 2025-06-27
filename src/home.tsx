@@ -25,6 +25,7 @@ export default function Home() {
           />
         </div>
       </div>
+      <FloatingInviteBar />
     </main>
   )
 }
@@ -166,3 +167,20 @@ function GameCard({ games }: { games: typeof paths.app.games }) {
     </div>
   )
 }
+
+function FloatingInviteBar() {
+  return (
+    <div className="fixed bottom-4 left-4 right-4 bg-elevation-1/80 backdrop-blur-md max-w-md mx-auto px-4 py-4 rounded-2xl shadow-lg flex items-center justify-between">
+      <div className="flex items-center gap-2">
+        <Icon name="UserPlus" className="stroke-green-foreground" />
+        <span className="text-green-foreground">Invite Friends</span>
+      </div>
+      <div className="flex items-center gap-1">
+        <ProfileComponent />
+        <span className="">test***4</span>
+      </div>
+    </div>
+  )
+}
+
+function InviteBar() {}
