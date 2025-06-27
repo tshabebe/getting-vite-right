@@ -2,6 +2,8 @@ import { Button, Input } from 'react-aria-components'
 import { useState } from 'react'
 import { Icon } from './components/Icon'
 import { paths } from './paths'
+import { FloatingInviteBar } from './floatingComponent'
+import { ProfileComponent } from './profileComponent'
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState('')
@@ -134,53 +136,31 @@ function BetComponent() {
   )
 }
 
-function ProfileComponent() {
-  return (
-    <Button
-      className={
-        'bg-elevation-1 hover:bg-elevation-1-hover p-2 hover:text-foreground-hover items-center rounded-full'
-      }
-    >
-      <Icon
-        name="User"
-        className="stroke-foreground size-3.5 md:size-4 lg:size-5"
-      />
-    </Button>
-  )
-}
-
 function GameCard({ games }: { games: typeof paths.app.games }) {
   return (
     <div className="grid md:px-6 gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 basis-10">
       {games.map((game) => (
-        <Button className={'h-48 relative'} key={game.name}>
+        <Button
+          className={'h-48 relative group overflow-hidden'}
+          key={game.name}
+        >
           <img
             src={game.path}
             alt={game.name}
-            className="w-full h-full object-cover  rounded-lg"
+            className="w-full h-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-110"
           />
-          <div className="absolute px-3.5 md:px-4 pb-2  text-foreground-contrast h-14 bottom-0 flex items-end bg-gradient-to-t from-elevation-1 via-50% via-elevation-1/50 to-elevation-1/0 inset-x-0">
+          <div className="absolute px-3.5 md:px-4 pb-2 text-foreground-contrast h-14 bottom-0 flex items-end bg-gradient-to-t from-elevation-1 via-50% via-elevation-1/50 to-elevation-1/0 inset-x-0">
             <span className="text-base">{game.name}</span>
+          </div>
+          <div className="absolute inset-0 bg-foreground/10 px-2 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <p className="text-sm text-foreground-contrast leading-relaxed">
+              Experience the thrill of {game.name.toLowerCase()}. A captivating
+              adventure that will keep you engaged for hours with stunning
+              graphics and immersive gameplay.
+            </p>
           </div>
         </Button>
       ))}
     </div>
   )
 }
-
-function FloatingInviteBar() {
-  return (
-    <div className="fixed bottom-4 left-4 right-4 bg-elevation-1/80 backdrop-blur-md max-w-md mx-auto px-4 py-4 rounded-2xl shadow-lg flex items-center justify-between">
-      <div className="flex items-center gap-2">
-        <Icon name="UserPlus" className="stroke-green-foreground" />
-        <span className="text-green-foreground">Invite Friends</span>
-      </div>
-      <div className="flex items-center gap-1">
-        <ProfileComponent />
-        <span className="">test***4</span>
-      </div>
-    </div>
-  )
-}
-
-function InviteBar() {}
