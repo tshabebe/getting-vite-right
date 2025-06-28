@@ -40,7 +40,7 @@ export function FloatingInviteBar() {
       initial={{ y: 100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-      className="fixed bottom-4 left-4 right-4 bg-elevation-1/80 backdrop-blur-md max-w-md mx-auto px-4 py-4 rounded-2xl shadow-lg flex items-center justify-between"
+      className="fixed bottom-4 left-4 right-4 bg-elevation-1/80 backdrop-blur-md max-w-md mx-auto px-4 py-2 rounded-2xl shadow-lg flex items-center justify-between"
       onClick={handleOutsideClick}
     >
       <div className="flex items-center gap-2">
